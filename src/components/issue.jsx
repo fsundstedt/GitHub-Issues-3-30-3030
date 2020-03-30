@@ -1,9 +1,17 @@
-import React, {Component} from 'react';
-import IssueList from './issueList'
+import React from 'react';
 
 const Issue = props => {
     console.log(props.data);
-    return <div>aaa</div>
+    return props.data.map(item => {
+        return (
+            <div>
+                <li>
+                    <div>{item.title}</div>
+                    <div>{item.number} {item.user.login}</div>
+                </li>
+            </div>
+        )
+    });
 }
 
 export default Issue;
