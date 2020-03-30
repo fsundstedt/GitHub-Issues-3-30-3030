@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Issue from './issue';
 
 export default class IssueList extends Component {
     state = {
@@ -8,7 +9,6 @@ export default class IssueList extends Component {
     getData = async () => {
         const response = await fetch('https://api.github.com/repos/facebook/create-react-app/issues');
         const data = await response.json();
-        console.log(data);
         return data;
     }
 
@@ -21,17 +21,12 @@ export default class IssueList extends Component {
     }
 
     render() {
-        const printList = this.state.issues.map((item) => {
-            return <li>
-                <div>{item.title}</div>
-                <div>#{item.number} opened by {item.user.login}</div>
-                </li>
-        }
-
-        )
+        const info = this.state.issues;
 
         return (
-            <div>{printList}</div>
-        )
+                <div>
+                    <Issue data={info}/>
+                </div>
+        );
     }
 }
