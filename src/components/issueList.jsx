@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Issue from './issue';
 
 export default class IssueList extends Component {
     state = {
@@ -21,12 +20,17 @@ export default class IssueList extends Component {
     }
 
     render() {
-        const info = this.state.issues;
+        const { issues } = this.state;
 
         return (
-                <div>
-                    <Issue data={info}/>
-                </div>
+            <div>
+                {issues.map(issue => (
+                    <div>
+                        <div>{issue.title}</div>
+                        <a href="issue/:issue_number?">{issue.number}</a>
+                    </div>
+                ))}
+            </div>
         );
     }
 }

@@ -1,17 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Issue = props => {
-    console.log(props.data);
-    return props.data.map(item => {
+class Issue extends Component {
+    render() {
+        console.log(this.props)
+        
+        const { issue_number } = this.props.match.params;
+        console.log(issue_number);
         return (
-            <div>
-                <li>
-                    <div>{item.title}</div>
-                    <div>{item.number} {item.user.login}</div>
-                </li>
-            </div>
+            <div>{issue_number}</div>
         )
-    });
+    }
 }
 
 export default Issue;
