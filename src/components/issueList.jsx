@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 export default class IssueList extends Component {
     state = {
@@ -27,7 +28,7 @@ export default class IssueList extends Component {
                 {issues.map(issue => (
                     <div>
                         <div>{issue.title}</div>
-                        <a href="issue/:issue_number?">{issue.number}</a>
+                        <a href={`/issue/${issue.number}`}>{issue.number}</a>
                     </div>
                 ))}
             </div>
